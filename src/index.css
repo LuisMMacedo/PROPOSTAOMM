@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@300;400;500;600&display=swap');
+
+@theme {
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-bebas: "Bebas Neue", sans-serif;
+
+  --color-preto: #080808;
+  --color-s1: #111111;
+  --color-s2: #191919;
+  --color-s3: #222222;
+  --color-branco: #F2F0EC;
+  --color-bege: #E6D3BD;
+  --color-amber: #C4620A;
+  --color-text-primary: #F2F0EC;
+  --color-text-secondary: #A09585;
+  --color-muted: #5A5045;
+}
+
+@layer base {
+  body {
+    @apply bg-preto text-text-primary font-sans antialiased overflow-x-hidden;
+  }
+
+  body::before {
+    content: '';
+    @apply fixed inset-0 pointer-events-none z-50 opacity-60;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .wrap {
+    @apply max-w-[960px] mx-auto px-8;
+  }
+}
